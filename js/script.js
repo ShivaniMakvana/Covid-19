@@ -25,7 +25,7 @@ app.controller("MyCtrl", ($scope, $http) => {
           $scope.c_data=undefined;
         return;
       }
-      //$http.get(`${'https://covid19.mathdro.id/api'}/countries/${country}`)
+      
       $http.get(`${'https://corona.lmao.ninja/v2/'}countries/${country}?yesterday=true&strict=true&query`)
       .then((response)=>{
         console.log(response.data)
