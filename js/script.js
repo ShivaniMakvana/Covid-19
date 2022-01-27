@@ -7,7 +7,7 @@ app.controller("MyCtrl", ($scope, $http) => {
   console.log("App Loaded");
 
   //calling api
-  $http.get('https://covid19.mathdro.id/api').then(
+  $http.get('https://corona.lmao.ninja/v2/all?yesterday=').then(
     (response) => {
       //success
       console.log(response.data);
@@ -25,7 +25,8 @@ app.controller("MyCtrl", ($scope, $http) => {
           $scope.c_data=undefined;
         return;
       }
-      $http.get(`${'https://covid19.mathdro.id/api'}/countries/${country}`)
+      //$http.get(`${'https://covid19.mathdro.id/api'}/countries/${country}`)
+      $http.get(`${'https://corona.lmao.ninja/v2/'}countries/${country}?yesterday=true&strict=true&query`)
       .then((response)=>{
         console.log(response.data)
         $scope.c_data = response.data;
