@@ -28,7 +28,7 @@
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
   </head>
   <body ng-app="MyApp" ng-controller="MyCtrl">
     <div class="container">
@@ -48,8 +48,8 @@
           <div class="col-md-4">
             <div class="card bg-warning text-white">
               <div class="card-body">
-                <h3>Confirmed Cases</h3>
-                <h3>{{all_data.confirmed.value}}</h3>
+                <h3>New Confirmed Cases</h3>
+                <h3>{{all_data.todayCases}}</h3>
               </div>
             </div>
           </div>
@@ -57,16 +57,44 @@
           <div class="col-md-4">
             <div class="card bg-success text-white">
               <div class="card-body">
-                <h3>Recovered Cases</h3>
-                <h3>{{all_data.recovered.value}}</h3>
+                <h3>New Recovered Cases</h3>
+                <h3>{{all_data.todayRecovered}}</h3>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card bg-danger text-white">
               <div class="card-body">
-                <h3>Death Cases</h3>
-                <h3>{{all_data.deaths.value}}</h3>
+                <h3>New Death Cases</h3>
+                <h3>{{all_data.todayDeaths}}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row text-center">
+          <div class="col-md-4">
+            <div class="card bg-warning text-white">
+              <div class="card-body">
+                <h3>Total Confirmed Cases</h3>
+                <h3>{{all_data.cases}}</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card bg-success text-white">
+              <div class="card-body">
+                <h3>Total Recovered Cases</h3>
+                <h3>{{all_data.recovered}}</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card bg-danger text-white">
+              <div class="card-body">
+                <h3>Total Death Cases</h3>
+                <h3>{{all_data.deaths}}</h3>
               </div>
             </div>
           </div>
@@ -89,7 +117,7 @@
               <div class="card bg-warning text-white">
                 <div class="card-body">
                   <h3>Confirmed Cases</h3>
-                  <h3>{{c_data.confirmed.value}}</h3>
+                  <h3>{{c_data.cases}}</h3>
                 </div>
               </div>
             </div>
@@ -98,7 +126,7 @@
               <div class="card bg-success text-white">
                 <div class="card-body">
                   <h3>Recovered Cases</h3>
-                  <h3>{{c_data.recovered.value}}</h3>
+                  <h3>{{c_data.recovered}}</h3>
                 </div>
               </div>
             </div>
@@ -106,7 +134,7 @@
               <div class="card bg-danger text-white">
                 <div class="card-body">
                   <h3>Death Cases</h3>
-                  <h3>{{c_data.deaths.value}}</h3>
+                  <h3>{{c_data.deaths}}</h3>
                 </div>
               </div>
             </div>
