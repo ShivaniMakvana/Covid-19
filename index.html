@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Angular App</title>
+    <link rel="stylesheet" href="css/style.css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -31,10 +32,26 @@
     <script src="js/script.js"></script>
   </head>
   <body ng-app="MyApp" ng-controller="MyCtrl">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">Covid 19</a>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <br />
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
     <div class="container">
       <div class="jumbotron py-3">
         <h1 class="text-center">{{title}}</h1>
-        <p class="pt-3">
+        <p class="pt-3 text-danger">
           Most people infected with the virus will experience mild to moderate
           respiratory illness and recover without requiring special treatment.
           However, some will become seriously ill and require medical attention.
@@ -71,7 +88,7 @@
             </div>
           </div>
         </div>
-        <br>
+        <br />
         <div class="row text-center">
           <div class="col-md-4">
             <div class="card bg-warning text-white">
@@ -104,19 +121,51 @@
         <input
           type="text"
           class="form-control mt-4"
-          placeholder="enter country here"
+          placeholder="Enter country name here"
           ng-model="c"
           ng-change="get_c_data()"
         />
+      </div>
+      <br>
 
-        <!-- c data -->
-        <div class="container-fluid" ng-if="c_data">
+      <!-- c data -->
+      <div class="jumbotron py-3" ng-if="c_data">
+        <div class="container-fluid">
           <h1 class="text-center mt-4 text-uppercase">{{c}} STATUS</h1>
           <div class="row text-center mt-4">
             <div class="col-md-4">
               <div class="card bg-warning text-white">
                 <div class="card-body">
-                  <h3>Confirmed Cases</h3>
+                  <h3>New Confirmed Cases</h3>
+                  <h3>{{c_data.todayCases}}</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card bg-success text-white">
+                <div class="card-body">
+                  <h3>New Recovered Cases</h3>
+                  <h3>{{c_data.todayRecovered}}</h3>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card bg-danger text-white">
+                <div class="card-body">
+                  <h3>New Death Cases</h3>
+                  <h3>{{c_data.todayDeaths}}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <h2 class="text-center">Total Corona Case Details</h2>
+          <div class="row text-center mt-4">
+            <div class="col-md-4">
+              <div class="card bg-warning text-white">
+                <div class="card-body">
+                  <h3>Total Confirmed Cases</h3>
                   <h3>{{c_data.cases}}</h3>
                 </div>
               </div>
@@ -125,7 +174,7 @@
             <div class="col-md-4">
               <div class="card bg-success text-white">
                 <div class="card-body">
-                  <h3>Recovered Cases</h3>
+                  <h3>Total Recovered Cases</h3>
                   <h3>{{c_data.recovered}}</h3>
                 </div>
               </div>
@@ -133,15 +182,55 @@
             <div class="col-md-4">
               <div class="card bg-danger text-white">
                 <div class="card-body">
-                  <h3>Death Cases</h3>
+                  <h3>Total Death Cases</h3>
                   <h3>{{c_data.deaths}}</h3>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- end c data -->
+      </div>
+
+      <!-- end c data -->
+    </div>
+
+    <!-- image gallery -->
+    <div class="container-fluid">
+      <div class="row gallery">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <figure>
+            <img class="img-fluid rounded border" src="img/img1.jpg"/>
+          </figure>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <figure>
+            <img class="img-fluid rounded border" src="img/img2.jpg"/>
+          </figure>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <figure>
+            <img class="img-fluid rounded border" src="img/img3.jpg"/>
+          </figure>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <figure>
+            <img class="img-fluid rounded border" src="img/img4.jpg"/>
+          </figure>
+        </div>
       </div>
     </div>
+
+    <!--End of image gallery -->
+
+    <footer>
+      <p class="text-center">
+        **This is just a Corona Case Details fetching Angular application.
+      </p>
+      <p class="text-center">
+        &copy; Created by
+        <a href="https://github.com/ShivaniMakvana" target="_blank"
+          >Shivani</a>
+      </p>
+    </footer>
   </body>
 </html>
